@@ -1,0 +1,345 @@
+/* Paleta de colores y fuente seleccionadas */
+:root{
+    --ilumaGreen: #1F312F;
+    --texts: 'Work Sans', Sans-serif;
+    --ilumaBlue: #092538;
+    --ilumaYellow: #FEF282;
+}
+
+/* Normalización de estilos */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Permite controlar el tamaño de fuente en rem: 1rem = 10px */
+html{
+    font-size: 62.5%;
+    background-color: #ffffff;
+    width: auto;
+    min-height: 100vh;
+}
+
+/* =========INDEX========= */
+
+/* =========ESTILOS DEL HEADER========= */
+header{
+    background: var(--ilumaGreen);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header__logo-link img{
+    width: 15vw;
+    margin: 10px;
+}
+
+.header__link{
+    font-family: var(--texts);
+    text-decoration: none;
+    color: var(--ilumaYellow);
+    margin: 0 15px;
+    font-size: 1.5rem;
+}
+
+.header__link:hover{
+    transform: scale(1.2);
+    text-decoration: underline;
+}
+
+/* =========ESTILOS MAIN========= */
+main section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    margin: 20px auto;
+    flex-wrap: nowrap;
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.main__title{
+    font-family: var(--texts);
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 2.2rem;
+    color: var(--ilumaBlue);
+}
+
+/* Estilos tabla */
+.main__table{
+    font-family: var(--texts);
+    color: var(--ilumaBlue);
+    border-collapse: collapse;
+    margin: 0 15px 15px 15px;
+}
+
+.main__table tr th{
+    border: 1px solid var(--ilumaGreen);
+    font-weight: bold;
+    padding: 2px;
+}
+
+.main__table tr td{
+    border: 1px solid var(--ilumaGreen);
+    padding: 1px;
+    text-align: center;
+    color: #000000;
+}
+
+.main__table-actions{
+    background-color: var(--ilumaGreen);
+    color: var(--ilumaYellow);
+}
+
+.main__table tr td a i{
+    color: var(--ilumaBlue);
+    margin: 0 1px;
+    cursor: pointer;
+}
+
+.main__table tr td form{
+    display: inline;
+}
+
+.main__table tr td form button{
+    background-color: none;
+    border: none;
+    color: var(--ilumaBlue);
+    margin: 0 1px;
+    cursor: pointer;
+}
+
+.main__table tr td a i:hover,
+.main__table tr td form button:hover{
+    color: var(--ilumaGreen);
+    transform: scale(1.2);
+}
+
+/* Estilos botón */
+.main__button{
+    font-family: var(--texts);
+    background-color: var(--ilumaGreen);
+    color: var(--ilumaYellow);
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid var(--ilumaGreen);
+}
+
+.main__button:hover{
+    transform: scale(1.1);
+    background-color: #ffffff;
+    color: var(--ilumaGreen);
+    background-color: var(--ilumaYellow);
+}
+
+/* =========ESTILOS IMAGEN DE FONDO========= */
+.main__logo img{
+    width: 50vw;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.4;
+    bottom: 0;
+    right: 0;
+}
+
+/* =========CREACIÓN DE PRODUCTO========= */
+.main__form{
+    font-family: var(--texts);
+    font-size: 1.2rem;
+    width: 80%;
+}
+
+.main__form div{
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main__form input,
+.main__form select{
+    border: 1px solid var(--ilumaGreen);
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 60%;
+}
+
+.main__form input:focus,
+.main__form select:focus{
+    border: 1px solid var(--ilumaYellow);
+    outline: none;
+}
+
+.main__form select:focus{
+    background-color: var(--ilumaBlue);
+    color: #ffffff;
+}
+
+/* Estilos inputs de solo lectura*/
+#productionDate{
+    padding: 5px 0;
+    border: 1px solid transparent;
+    background-color: transparent;
+}
+
+#productionDate:focus{
+    border: 1px solid transparent;
+}
+
+div.main__form-timer{
+    font-size: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    width: 60%;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+div.main__form-timer i{
+    color: var(--ilumaGreen);
+}
+
+div.main__form-timer input{
+    border: 1px solid transparent;
+    background-color: transparent;
+}
+
+div.main__form-timer input:focus{
+    border: 1px solid transparent;
+}
+
+input.main__form-button{
+    font-family: var(--texts);
+    background-color: var(--ilumaGreen);
+    color: var(--ilumaYellow);
+    padding: 5px 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid var(--ilumaGreen);
+    display: block;
+    margin: 10px auto;
+    width: auto;
+}
+
+.main__form-button:hover{
+    transform: scale(1.1);
+    background-color: #ffffff;
+    color: var(--ilumaGreen);
+    background-color: var(--ilumaYellow);
+}
+
+div.main__errors{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: var(--ilumaGreen);
+    font-weight: bold;
+}
+
+/* =========ESTILOS ADVERTENCIA========= */
+.swal2-popup.warning__popup{
+    width: auto;
+}
+
+.warning__title{
+    font-family: var(--texts);
+    font-size: 2.5rem;
+}
+
+.warning__text{
+    font-family: var(--texts);
+    font-size: 1.5rem;
+}
+
+.swal2-styled.swal2-confirm.warning__confirm,
+.swal2-styled.swal2-cancel.warning__cancel{
+    font-family: var(--texts);
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 30px;
+}
+
+/* =========ESTILOS PARA RESOLUCIÓN PORTATIL=========*/
+
+@media(min-width: 769px){
+    /* =========ESTILOS DEL HEADER========= */
+    .header__logo-link img{
+        width: 10vw;
+    }
+
+    /* =========ESTILOS MAIN========= */
+    .main__title{
+        font-size: 2.5rem;
+    }
+
+    /* Estilos tabla */
+    .main__table tr th{
+        font-size: 1.5rem;
+        padding: 5px;
+    }
+
+    .main__table tr td{
+        font-size: 1.3rem;
+        padding: 5px;
+    }
+
+    /* Estilos botón */
+    .main__button,
+    .main__form-button{
+        font-size: 2rem;
+    }
+
+    /* =========CREACIÓN DE PRODUCTO========= */
+    .main__form{
+        font-size: 1.4rem;
+    }
+
+    /* Estilos inputs de solo lectura*/
+
+    div.main__form-timer{
+        font-size: 2.2rem;
+    }
+}
+
+/* =========ESTILOS PARA RESOLUCIÓN COMPUTADOR MESA=========*/
+
+@media(min-width: 1025px){
+    /* =========ESTILOS DEL HEADER========= */
+    .header__logo-link img{
+        width: 5vw;
+    }
+
+    /* =========ESTILOS MAIN========= */
+    main section{
+        width: 65%;
+    }
+
+    /* Estilos tabla */
+    .main__table tr th{
+        font-size: 1.5rem;
+    }
+
+    /* =========ESTILOS IMAGEN DE FONDO========= */
+    .main__logo img{
+        width: 40vw;
+    }
+}

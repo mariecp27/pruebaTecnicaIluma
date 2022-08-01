@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/head.ejs', {title: 'Editar producto'}) %>
+    <script src="/js/timer.js" defer></script>
+</head>
+<body>
+    <header>
+        <%- include('./partials/header.ejs') %>
+    </header>
+    <main>
+        <section>
+            <h1 class="main__title">Editar producto</h1>
+            <form action="/edit/<%= productToEdit.product_id %>?_method=PUT" method="post" enctype="application/x-www-form-urlencoded" class="main__form">
+                <div>
+                    <label for="name">Nombre del producto:</label>
+                    <input 
+                        type="text"
+                        name="name"
+                        id="name"
+                        value="<%= locals.oldData ? oldData.name : productToEdit.name %>"
+                    >
+                </div>
+                <% if (locals.errors && errors.name) { %>
+                    <div class="main__errors">
+                        <i class="fa-solid fa-circle-exclamation"></i> <%= errors.name.msg %> 
+                    </div>
+                <% } %>
+
+                <div>
+                    <label for="productType">Tipo de producto:</label>
+                    <select name="productType" id="productType">
+                        <option selected disabled>Seleccione el tipo de producto</option>
+                        <% for( let i = 0; i < productTypes.length; i++ ) { %>
+                            <option
+                                <% if (locals.oldData && oldData.productType) { %>
+                                    <% if (productTypes[i].product_type_id == oldData.productType) { %>
+                                        selected
+                                    <% } %>
+                                <% } else { %>
+                                    <% if (productTypes[i].product_type_id == productToEdit.productTypes.product_type_id) { %>
+                                        selected
+                                    <% } %>
+                                <% } %>
+                                value="<%= productTypes[i].product_type_id %>">
+                                <%= productTypes[i].product_type %>
+                            </option>
+                        <% } %>
+                    </select>
+                </div>
+                <% if (locals.errors && errors.productType) { %>
+                    <div class="main__errors">
+                        <i class="fa-solid fa-circle-exclamation"></i> <%= errors.productType.msg %> 
+                    </div>
+                <% } %>
+
+                <div>
+                    <label for="productionDate">Fecha de producción:</label>
+                    <input
+                        type="date"
+                        name="productionDate"
+                        id="productionDate"
+                        readonly
+                        value="<%= productToEdit.production_date %>"
+                    >
+                </div>
+
+                <div>
+                    <label for="employee">Operario responsable:</label>
+                    <select name="employee" id="employee">
+                        <option selected disabled>Seleccione el operario</option>
+                        <% for( let i = 0; i < employees.length; i++ ) { %>
+                            <option
+                                <% if (locals.oldData && oldData.employee) { %>
+                                    <% if (employees[i].employee_id == oldData.employee) { %>
+                                        selected
+                                    <% } %>
+                                <% } else { %>
+                                    <% if (employees[i].employee_id == productToEdit.employees.employee_id) { %>
+                                        selected
+                                    <% } %>
+                                <% } %>
+                                value="<%= employees[i].employee_id %>">
+                                <%= employees[i].name %> <%= employees[i].last_name %>
+                            </option>
+                        <% } %>
+                    </select>
+                </div>
+                <% if (locals.errors && errors.employee) { %>
+                    <div class="main__errors">
+                        <i class="fa-solid fa-circle-exclamation"></i> <%= errors.employee.msg %> 
+                    </div>
+                <% } %>
+
+                <div>
+                    <label for="packagingType">Tipo de empaque:</label>
+                    <select name="packagingType" id="packagingType">
+                        <option selected disabled>Seleccione el tipo de empaque</option>
+                        <% for( let i = 0; i < packagingType.length; i++ ) { %>
+                            <option
+                                <% if (locals.oldData && oldData.packagingType) { %>
+                                    <% if (packagingType[i].packaging_type_id == oldData.packagingType) { %>
+                                        selected
+                                    <% } %>
+                                <% } else { %>
+                                    <% if (packagingType[i].packaging_type_id == productToEdit.packagingTypes.packaging_type_id) { %>
+                                        selected
+                                    <% } %>
+                                <% } %>
+                                value="<%= packagingType[i].packaging_type_id %>">
+                                <%= packagingType[i].packaging_type %>
+                            </option>
+                        <% } %>
+                    </select>
+                </div>
+                <% if (locals.errors && errors.packagingType) { %>
+                    <div class="main__errors">
+                        <i class="fa-solid fa-circle-exclamation"></i> <%= errors.packagingType.msg %> 
+                    </div>
+                <% } %>
+
+                <div>
+                    <label for="timer">Tiempo de producción:</label>
+                    <div class="main__form-timer">
+                        <i class="fa-solid fa-stopwatch"></i>
+                        <input
+                            type="text"
+                            name="timer"
+                            id="timer"
+                            value="<%= locals.oldData ? oldData.timer : productToEdit.production_time %>"
+                            readonly
+                        >
+                    </div>
+                </div>
+
+                <input type="submit" value="Actualizar" class="main__form-button">
+            </form>
+        </section>
+        <div class="main__logo">
+            <img src="/images/isotipo-iluma-amarillo.svg" alt="Logo">
+        </div>
+    </main>
+</body>
+</html>

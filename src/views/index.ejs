@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <%- include('./partials/head.ejs', {title: 'Inicio'}) %>
+    <script defer src="/js/confirmDelete.js"></script>
+    <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <%- include('./partials/header.ejs') %>
+    </header>
+    <main>
+        <section>
+            <h1 class="main__title">Listado de productos</h1>
+            <table class="main__table">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre del producto</th>
+                    <th>Tipo de producto</th>
+                    <th>Fecha de producción</th>
+                    <th>Operario responsable</th>
+                    <th>Tiempo de producción</th>
+                    <th>Tipo de empaque</th>
+                    <th class="main__table-actions">Acciones</th>
+                </tr>
+                <% for( let i = 0; i < allProducts.length; i++ ) { %>
+                    <tr>
+                        <td><%= allProducts[i].product_id %></td>
+                        <td><%= allProducts[i].name %></td>
+                        <td><%= allProducts[i].productTypes.product_type %></td>
+                        <td><%= allProducts[i].production_date %></td>
+                        <td><%= allProducts[i].employees.name %> <%= allProducts[i].employees.last_name %></td>
+                        <td><%= allProducts[i].production_time %></td>
+                        <td><%= allProducts[i].packagingTypes.packaging_type %></td>
+                        <td class="main__table-actions-b">
+                            <a href="/edit/<%= allProducts[i].product_id %>"><i class="fa-solid fa-pen"></i></a></i>
+                            <form action="/delete/<%= allProducts[i].product_id %>?_method=DELETE" method="post" enctype="application/x-www-form-urlencoded" class="deleteForm">
+                                <button type="submit" class="deleteButton"><i class="fa-solid fa-trash"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                <% } %>
+            </table>
+            <a href="/create" class="main__button">Agregar producto</a>
+        </section>
+        <div class="main__logo">
+            <img src="/images/isotipo-iluma-amarillo.svg" alt="Logo">
+        </div>
+    </main>
+</body>
+</html>
