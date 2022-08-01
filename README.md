@@ -9,7 +9,7 @@
   2. Ejecutar en consola el comando: ```npm install```
   3. Esperar que los módulos requeridos sean instalados
   4. Crear la base de datos a través de los archivos [structure.sql](https://github.com/mariecp27/pruebaTecnicaIluma/blob/main/database/structure.sql) y [data.sql](https://github.com/mariecp27/pruebaTecnicaIluma/blob/main/database/data.sql)
-  5. Crear un archivo **.env** en la raiz del proyecto con la siguiente estructura:
+  5. Ejecutar en consola el comando: ```cp .env.example .env```. Se creará un archivo .env con la siguiente estructura:
   ```
   DB_HOST=
   DB_USER=
